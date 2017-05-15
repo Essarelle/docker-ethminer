@@ -26,7 +26,8 @@ RUN apt-get update && \
     opencl-headers \
     mesa-common-dev \
     libmicrohttpd-dev \
-    build-essential
+    build-essential \
+    chmod +x /bin/dumb-init
 
 RUN git clone https://github.com/Genoil/cpp-ethereum/ && \
     cd cpp-ethereum && \
