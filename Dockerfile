@@ -2,8 +2,7 @@ FROM nvidia/cuda:8.0-devel
 
 MAINTAINER ty.auvil@gmail.com
 
-ENV DUMB_VERSION=1.2.0 \
-    GIT_TAG=
+ENV DUMB_VERSION=1.2.0
 
 COPY docker-entrypoint.sh /bin/docker-entrypoint.sh
 ADD https://github.com/Yelp/dumb-init/releases/download/v${DUMB_VERSION}/dumb-init_${DUMB_VERSION}_amd64 /bin/dumb-init
@@ -26,7 +25,7 @@ RUN apt-get update && \
     opencl-headers \
     mesa-common-dev \
     libmicrohttpd-dev \
-    build-essential \
+    build-essential && \
     chmod +x /bin/dumb-init
 
 RUN git clone https://github.com/Genoil/cpp-ethereum/ && \
