@@ -9,7 +9,8 @@ Restart=always
 ExecStartPre=-/usr/bin/docker stop %n
 ExecStartPre=-/usr/bin/docker rm %n
 ExecStartPre=/usr/bin/docker pull tyauvil/ethminer
-ExecStart=/usr/bin/docker run --rm --name %n
+ExecStart=/usr/bin/nvidia-docker run --rm --name %n --env-file=/etc/default/ethminer \
+          -v /data/ethminer:/root/.ethereum/
 
 [Install]
 WantedBy=multi-user.target
